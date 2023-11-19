@@ -3,7 +3,7 @@ import numpy as np
 import pickle
 
 class Camera():
-    def __init__(self, cam_number, sectors):
+    def __init__(self, cam_number):
     
         # Inicjalizacja kamery z ustawioną rozdzielczością
         self.cap = cv2.VideoCapture(cam_number)
@@ -25,7 +25,7 @@ class Camera():
         self.min_contour_area = 10000  # Minimalne pole powierzchni
         self.max_contour_area = 35000  # Maksymalne pole powierzchni
 
-        with open(sectors, 'rb') as f:
+        with open('sectors'+str(cam_number), 'rb') as f:
             self.sectorsWithScore = pickle.load(f)
 
 
@@ -79,7 +79,7 @@ class Camera():
         #     print(scores)
         #     scores = [0,0,0]
 
-        # for position in cross_positions:
+        # for position in self.cross_positions:
         #     cv2.drawMarker(frame, position, (0, 0, 255), markerType=cv2.MARKER_TILTED_CROSS, markerSize=20, thickness=2)
 
         #cv2.imshow('Camera View', frame)

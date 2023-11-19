@@ -3,7 +3,8 @@ import numpy as np
 import time
 import pickle
 
-cap = cv2.VideoCapture(0)
+cam = input("Podaj nr kamery ")
+cap = cv2.VideoCapture(int(cam))
 cap.set(3, 1920)  # Szerokość obrazu
 cap.set(4, 1080)  # Wysokość obrazu
 
@@ -43,7 +44,7 @@ while True:
         print("Total sectors: ",len(sectors))
         path = []
     elif key == ord('s'):
-        with open('sectors','wb') as f:
+        with open('sectors'+cam,'wb') as f:
             print(sectors)
             pickle.dump(sectors,f)
         break

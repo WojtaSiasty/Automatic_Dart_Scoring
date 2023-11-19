@@ -4,8 +4,14 @@ from tkinter import ttk
 class Menu():
 
     def __init__(self):
+        self.turn = 1
         self.gamescore1 = 501
         self.gamescore2 = 501
+
+        self.hit1_value = 0
+        self.hit2_value = 0
+        self.hit3_value = 0
+
         self.window = tk.Tk()
         self.window.title("Dart")
         self.window.geometry("400x400")
@@ -14,9 +20,9 @@ class Menu():
         score1 = ttk.Label(master = self.window, text = self.gamescore1)
         label2 = ttk.Label(master = self.window, text = "Gracz 2")
         score2 = ttk.Label(master = self.window, text = self.gamescore2)
-        self.hit1 = ttk.Entry(master = self.window)
-        self.hit2 = ttk.Entry(master = self.window)
-        self.hit3 = ttk.Entry(master = self.window)
+        self.hit1 = ttk.Entry(master = self.window, textvariable = self.hit1_value)
+        self.hit2 = ttk.Entry(master = self.window, textvariable = self.hit2_value)
+        self.hit3 = ttk.Entry(master = self.window, textvariable = self.hit3_value)
         button = ttk.Button(master = self.window, text = "Następny Gracz", command = self.button_func)
 
 
@@ -36,6 +42,8 @@ class Menu():
 
     def button_func(self):
         print("Button pressed")
+        # if turn == 1:
+        #     score = 
 
     # def get_window(self):
     #     return self.window
