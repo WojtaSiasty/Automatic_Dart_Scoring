@@ -70,7 +70,10 @@ class Camera():
                         score = self.calculate_score(lowest_point)
                         self.scores[crosses] = score
 
-        
+    def clear_arrays(self, _):
+        self.cross_positions = []
+        self.scores = [0,0,0]
+
         # key = cv2.waitKey(30)
         # if key & 0xFF == ord('q'):
         #     break
